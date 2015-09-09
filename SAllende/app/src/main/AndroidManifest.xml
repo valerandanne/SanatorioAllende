@@ -16,6 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".CoberturaActivity"
+            android:label="@string/title_activity_cobertura" >
+        </activity>
+        <activity
+            android:name=".EspecialidadesActivity"
+            android:label="@string/title_activity_especialidades" >
+        </activity>
     </application>
 
 </manifest>
