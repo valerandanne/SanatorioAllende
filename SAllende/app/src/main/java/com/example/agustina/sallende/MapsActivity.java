@@ -18,7 +18,7 @@ public class MapsActivity extends FragmentActivity {
     private static final LatLng CBA = new LatLng(-31.3994321,-64.2029724);
 
 
-    @Override
+        @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
