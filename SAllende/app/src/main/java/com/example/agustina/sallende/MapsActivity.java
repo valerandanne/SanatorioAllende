@@ -2,23 +2,32 @@ package com.example.agustina.sallende;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.app.Activity;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
+    private static final LatLng CBA = new LatLng(-31.3994321,-64.2029724);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         setUpMapIfNeeded();
-    }
+        mMap=((SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
+        Marker Cba = mMap.addMarker(new MarkerOptions().position(CBA).title("Córdoba").snippet("Por favor funciona"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(CBA, 15));
 
+    }
     @Override
     protected void onResume() {
         super.onResume();
