@@ -121,7 +121,7 @@
             android:layout_height="72dp"
             android:clickable="true"
             android:layout_weight="1"
-            android:text="Tel: 0810-555-2553"
+            android:text="TURNOS: 0810-555-2553"
             android:background="#2e2d92"
             android:textColor="#0bc949"
             android:textStyle="bold"
