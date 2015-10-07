@@ -109,9 +109,8 @@ public class Main extends AppCompatActivity{
         Button btn = (Button)findViewById(R.id.button_tur);
         String number= (String)btn.getText().toString();
 
-        Intent callIntent = new Intent(Intent.ACTION_CALL);
-        callIntent.setPackage("com.android.server.telecom");
-        callIntent.setData(Uri.parse(number));
+        Intent callIntent = new Intent(Intent.ACTION_DIAL);
+        callIntent.setData(Uri.parse("tel:08105552553"));
         startActivity(callIntent);
     }
 
