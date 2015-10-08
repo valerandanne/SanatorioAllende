@@ -15,5 +15,15 @@
         android:layout_alignParentTop="true"
         android:text="Item name here..."
         android:textSize="15dp" />
+
+    <ListView
+        android:id="@+id/list_item"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:textSize="10dp"
+
+        />
+
 </RelativeLayout>
 
