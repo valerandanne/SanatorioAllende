@@ -5,6 +5,7 @@ import android.app.ListActivity;
 import android.content.CursorLoader;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -46,22 +47,22 @@ public class EspecialidadesActivity extends Activity {
         super.onCreate(savedInstanceState);
        setContentView(R.layout.activity_especialidades);
 
-        LinearLayout ventana=(LinearLayout)findViewById(R.id.ventana_espe);
-
         listViewItems=(ListView)findViewById(R.id.list);
-        SQLiteDB db= new SQLiteDB(this);
+        SQLiteDB db =new SQLiteDB(this);
         db.getReadableDatabase();
         Cursor c= db.getAllEspecialidades();
+        String[] from = new String[]{"name"};
+        int[] to = new int[]{R.id.text};
 
 
-            while(c.moveToNext()){
-                especialidad=new BeanEspecialidad( c.getString(1));
-                lista.add(especialidad);
-            }
+        while(c.moveToNext()) {
+            especialidad = new BeanEspecialidad(c.getString(1));
+            lista.add(especialidad);
+        }
 
 
 
-        ArrayAdapter<BeanEspecialidad> adapter= new ArrayAdapter<BeanEspecialidad>(this,android.R.layout.simple_list_item_1,this.lista);
+        ArrayAdapter<BeanEspecialidad> adapter = new ArrayAdapter<BeanEspecialidad>(this,android.R.layout.simple_list_item_1,lista);
         listViewItems.setAdapter(adapter);
 
        }
