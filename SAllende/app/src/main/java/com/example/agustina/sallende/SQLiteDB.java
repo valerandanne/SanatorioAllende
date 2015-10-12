@@ -65,7 +65,7 @@ public class SQLiteDB extends SQLiteOpenHelper {
         db.execSQL("CREATE VIEW " + viewCobertura + " AS SELECT " + CobTable + "." + colCobID +
                 " AS _id," + " " + CobTable + "." + colCobName + " FROM " + CobTable);
 
-
+       db = this.getWritableDatabase();
         //HACER
         InsertMedico(db, 1, "Dr. Copioli Carlos", 1);
 
