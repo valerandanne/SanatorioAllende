@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
 public class CoberturaActivity extends AppCompatActivity {
 
@@ -11,6 +12,11 @@ public class CoberturaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cobertura);
+        ListView lvItems = (ListView) findViewById(R.id.lvItems);
+        SQLiteDB db = new SQLiteDB(this);
+
+        TodoCursorAdapter todo = new TodoCursorAdapter(this, db.getAllCoberturas(),0);
+        lvItems.setAdapter(todo);
     }
 
     @Override
