@@ -45,7 +45,7 @@ public class SQLiteDB extends SQLiteOpenHelper {
                     + colEspeDescrip + " TEXT )");
 
         db.execSQL("CREATE TABLE " + CobTable + "(" + colCobID + " INTEGER PRIMARY KEY AUTOINCREMENT , "
-                    + colCobName + "TEXT )");
+                    + colCobName + " TEXT )");
 
         db.execSQL("CREATE VIEW " + viewMed + "AS SELECT " + MedTable + "." + colMedID +
                     " AS _id," + " " + MedTable + "." + colMedName + "," + " " + EspeTable + "."

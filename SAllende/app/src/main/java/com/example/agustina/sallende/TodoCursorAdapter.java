@@ -19,11 +19,20 @@ public class TodoCursorAdapter extends CursorAdapter {
 
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        return LayoutInflater.from(context).inflate(R.layout.item_todo, parent, false);
+        return LayoutInflater.from(context).inflate(R.layout.activity_cobertura, parent, false);
     }
 
     @Override
     public void bindView(View view, Context context, Cursor cursor){
-        TextView
+        TextView tvID = (TextView)view.findViewById(R.id.tvID);
+        TextView tvName = (TextView)view.findViewById(R.id.tvName);
+        //Extract properties from cursor
+
+        String name = cursor.getString(cursor.getColumnIndex("colCobName"));
+        int ID = cursor.getInt(cursor.getColumnIndex("colCobID"));
+
+        tvID.setText(String.valueOf(ID));
+        tvName.setText(name);
+
     }
 }
