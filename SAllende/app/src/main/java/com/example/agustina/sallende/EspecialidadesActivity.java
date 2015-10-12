@@ -53,14 +53,15 @@ public class EspecialidadesActivity extends Activity {
         db.getReadableDatabase();
         Cursor c= db.getAllEspecialidades();
 
-        if(c.moveToFirst()){
-            do {
+
+            while(c.moveToNext()){
                 especialidad=new BeanEspecialidad( c.getString(1));
                 lista.add(especialidad);
-            }while(c.moveToNext());
-        }
+            }
 
-        ArrayAdapter<BeanEspecialidad> adapter= new ArrayAdapter<BeanEspecialidad>(this,android.R.layout.activity_list_item,this.lista);
+
+
+        ArrayAdapter<BeanEspecialidad> adapter= new ArrayAdapter<BeanEspecialidad>(this,android.R.layout.simple_list_item_1,this.lista);
         listViewItems.setAdapter(adapter);
 
        }
