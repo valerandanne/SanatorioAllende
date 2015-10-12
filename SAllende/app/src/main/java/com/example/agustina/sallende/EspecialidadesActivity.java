@@ -60,7 +60,7 @@ public class EspecialidadesActivity extends Activity {
             }while(c.moveToNext());
         }
 
-        ArrayAdapter<BeanEspecialidad> adapter= new ArrayAdapter<BeanEspecialidad>(getApplicationContext(),android.R.layout.activity_list_item,lista);
+        ArrayAdapter<BeanEspecialidad> adapter= new ArrayAdapter<BeanEspecialidad>(this,android.R.layout.activity_list_item,this.lista);
         listViewItems.setAdapter(adapter);
 
        }

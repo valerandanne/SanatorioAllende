@@ -52,18 +52,18 @@ public class SQLiteDB extends SQLiteOpenHelper {
 
 
         db.execSQL("CREATE TABLE " + CobTable + "(" + colCobID + " INTEGER PRIMARY KEY AUTOINCREMENT , "
-                    + colCobName + "TEXT )");
+                    + colCobName + " TEXT )");
 
-        db.execSQL("CREATE VIEW " + viewMed + "AS SELECT " + MedTable + "." + colMedID +
+        db.execSQL("CREATE VIEW " + viewMed + " AS SELECT " + MedTable + "." + colMedID +
                     " AS _id," + " " + MedTable + "." + colMedName + "," + " " + EspeTable + "."
                 + colEspeDescrip + "" + " FROM " + MedTable + " JOIN " + EspeTable + " ON " + MedTable
                 + "." + colMedEspe + " =" + EspeTable + "." + colEspeID);
 
-        db.execSQL("CREATE VIEW " + viewEspe + "AS SELECT " + EspeTable + "." + colEspeID +
-                " AS _id," + " " + EspeTable + "." + colEspeDescrip + "FROM " +  EspeTable);
+        db.execSQL("CREATE VIEW " + viewEspe + " AS SELECT " + EspeTable + "." + colEspeID +
+                " AS _id," + " " + EspeTable + "." + colEspeDescrip + " FROM " +  EspeTable);
 
-        db.execSQL("CREATE VIEW " + viewCobertura + "AS SELECT " + CobTable + "." + colCobID +
-                " AS _id," + " " + CobTable + "." + colCobName + "FROM " + CobTable);
+        db.execSQL("CREATE VIEW " + viewCobertura + " AS SELECT " + CobTable + "." + colCobID +
+                " AS _id," + " " + CobTable + "." + colCobName + " FROM " + CobTable);
 
 
         //HACER
@@ -77,7 +77,7 @@ public class SQLiteDB extends SQLiteOpenHelper {
         InsertEspecialidades(db, 3, "Cirugía cardíaca");
         InsertEspecialidades(db, 4, "Dermatología");
         InsertEspecialidades(db, 5, "Fonoaudiología");
-        InsertEspecialidades(db, 1, "Endocrinología");
+        InsertEspecialidades(db, 6, "Endocrinología");
 
         InsertCobertura(db,1,"Osde");
 
