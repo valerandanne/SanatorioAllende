@@ -55,7 +55,7 @@ public class SQLiteDB extends SQLiteOpenHelper {
                     + colCobName + " TEXT )");
 
         db.execSQL("CREATE VIEW " + viewMed + " AS SELECT " + MedTable + "." + colMedID +
-                    " AS _id," + " " + MedTable + "." + colMedName + "," + " " + EspeTable + "."
+                " AS _id," + " " + MedTable + "." + colMedName + "," + " " + EspeTable + "."
                 + colEspeDescrip + "" + " FROM " + MedTable + " JOIN " + EspeTable + " ON " + MedTable
                 + "." + colMedEspe + " =" + EspeTable + "." + colEspeID);
 
@@ -68,6 +68,104 @@ public class SQLiteDB extends SQLiteOpenHelper {
 
         //HACER
         InsertMedico(db, 1, "Dr. Copioli Carlos", 1);
+        InsertMedico(db, 2, "Dra. Barrera Roxana", 1);
+        InsertMedico(db, 3, "Dra. Cavallo Marta", 1);
+        InsertMedico(db, 4, "Dra.Puentes Laura", 1);
+        InsertMedico(db, 5, "Dr. Astore Fabian",2);
+        InsertMedico(db, 6, "Dr. Demaria Javier", 2);
+        InsertMedico(db, 7, "Dr. Escudero Juan", 2);
+        InsertMedico(db, 8, "Dr. Gross Carlos", 2);
+        InsertMedico(db, 9, "Dr. Pacheco Eduardo", 2);
+        InsertMedico(db, 10, "Dr. Riveri Fancisco", 2);
+        InsertMedico(db, 11, "Dr. Salas Marcos", 2);
+        InsertMedico(db, 12, "Dra. Castro Maria Belen", 2);
+        InsertMedico(db, 13, "Dr. Moreira Eduardo", 3);
+        InsertMedico(db, 14, "Dr. Alday Luis", 3);
+        InsertMedico(db, 15, "Dr. Allall Oscar", 3);
+        InsertMedico(db, 16, "Dr. Allub Alejandro", 3);
+        InsertMedico(db, 17, "Dra. Auad Luciana", 3);
+        InsertMedico(db, 18, "Dr. Bass Gabriel", 3);
+        InsertMedico(db, 19, "Dr. Bono Julio", 3);
+        InsertMedico(db, 20, "Dr. Cordoba Roque", 4);
+        InsertMedico(db, 21, "Dr. Figueroa Marcelo", 4);
+        InsertMedico(db, 22, "Dr. Bronzi Jorge", 4);
+        InsertMedico(db, 23, "Dr. Cordoba Ignacio", 4);
+        InsertMedico(db, 24, "Dr. Liendo Rocardo", 4);
+        InsertMedico(db, 25, "Dr. Bono Julio", 5);
+        InsertMedico(db, 26, "Dra. Gonzales Eleonora", 5);
+        InsertMedico(db, 27, "Dra. Baldrini Maria Pia", 5);
+        InsertMedico(db, 28, "Dr. Centeno Alejandro", 5);
+        InsertMedico(db, 29, "Dr. Perrotat Pedro", 5);
+        InsertMedico(db, 30, "Dra. Ramona Griselda", 5);
+        InsertMedico(db, 31, "Dra. Vidal Graciaela", 5);
+        InsertMedico(db, 32, "Lic. Riera Monica", 6);
+        InsertMedico(db, 33, "Lic. Fuentes Anabella", 6);
+        InsertMedico(db, 34, "Lic. Leon Noelia", 6);
+        InsertMedico(db, 35, "Lic. Maranzana Melisa", 6);
+        InsertMedico(db, 36, "Dr. Ortiz Gustavo", 7);
+        InsertMedico(db, 37, "Dra. Arja Ana", 7);
+        InsertMedico(db, 38, "Dra. Bergoglio Marina", 7);
+        InsertMedico(db, 39, "Dra. Griguol Sandra", 7);
+        InsertMedico(db, 40, "Dra. Acuña Valeria", 7);
+        InsertMedico(db, 41, "Dr. Carri Julio", 8);
+        InsertMedico(db, 42, "Dra. Cordoba Claudia", 8);
+        InsertMedico(db, 43, "Dr. Faule Sebastian", 8);
+        InsertMedico(db, 44, "Dr. Higo Antonio", 8);
+        InsertMedico(db, 45, "Dr. Fadul Miguel", 8);
+        InsertMedico(db, 46, "Dra. Castillo Gabriela", 8);
+        InsertMedico(db, 47, "Dr. Novoa Pablo", 9);
+        InsertMedico(db, 48, "Dr. Orias Marcelo", 9);
+        InsertMedico(db, 49, "Dra. Barron Belen", 9);
+        InsertMedico(db, 50, "Dr. Rigo Diego", 9);
+        InsertMedico(db, 51, "Dr. Palacios Claudio", 10);
+        InsertMedico(db, 52, "Dr. Itati Zenon", 10);
+        InsertMedico(db, 54, "Dra. Faustinelli Valeria", 10);
+        InsertMedico(db, 55, "Dra. Pautaso Josefina", 10);
+        InsertMedico(db, 53, "Lic. Duarte Carolina", 11);
+        InsertMedico(db, 54, "Lic. Aragon Ana", 11);
+        InsertMedico(db, 55, "Lic. Galiano Analia", 11);
+        InsertMedico(db, 56, "Lic. Gonzalez Carolina", 11);
+        InsertMedico(db, 57, "Lic. Gonzalez Maria Victoria", 11);
+        InsertMedico(db, 58, "Dr. Vilarrodona Lucas", 12);
+        InsertMedico(db, 59, "Dr. Laje Luis", 12);
+        InsertMedico(db, 60, "Dr. Tacité Domingo", 12);
+        InsertMedico(db, 61, "Dr. Laje Poviña Luis", 12);
+        InsertMedico(db, 62, "Dr. Matach Gustavo", 12);
+        InsertMedico(db, 63, "Dr. Reviglio Victor", 12);
+        InsertMedico(db, 64, "Dr. Ale Omar", 12);
+        InsertMedico(db, 65, "Dra. Castellano Ximena", 12);
+        InsertMedico(db, 66, "Dra. Cáceres Beatriz", 12);
+        InsertMedico(db, 67, "Dr. Zernotti Mario", 13);
+        InsertMedico(db, 68, "Dra. Benitez Paula", 13);
+        InsertMedico(db, 69, "Dr. Conci Rodolfo", 13);
+        InsertMedico(db, 70, "Dr. Filiberti Gabriel", 13);
+        InsertMedico(db, 71, "Dra. Mirilo Gabriela", 13);
+        InsertMedico(db, 72, "Dr. Olmos Manuel", 13);
+        InsertMedico(db, 73, "Dra. Castro Fernanda", 13);
+        InsertMedico(db, 74, "Dr. Rey Gonzalo", 13);
+        InsertMedico(db, 75, "Dr. Bergallo Roberto", 14);
+        InsertMedico(db, 76, "Dra. Bergallo Soledad", 14);
+        InsertMedico(db, 77, "Dra. Blanco Silvana", 14);
+        InsertMedico(db, 78, "Dra. Bruno Paula", 14);
+        InsertMedico(db, 79, "Dr. Buteler Lucas", 14);
+        InsertMedico(db, 80, "Dr. Balacco Martin", 14);
+        InsertMedico(db, 81, "Dra. Becerra Adriana", 14);
+        InsertMedico(db, 82, "Dr. Allende Bartolomé Tomas", 15);
+        InsertMedico(db, 83, "Dr. Allende Gillermo José", 15);
+        InsertMedico(db, 84, "Dr. Allende Bartolomé", 15);
+        InsertMedico(db, 85, "Dr. Allende Cristian", 15);
+        InsertMedico(db, 86, "Dra. Allende Victoria", 15);
+        InsertMedico(db, 87, "Dr. Bertoloti Roman", 15);
+        InsertMedico(db, 88, "Dr. Vitar Ivan", 15);
+        InsertMedico(db, 89, "Dr. Lopez Seoane Manuel", 16);
+        InsertMedico(db, 90, "Prof. Dr. Juaneda Ricardo", 16);
+        InsertMedico(db, 91, "Dr. Barros Nores Julio", 16);
+        InsertMedico(db, 92, "Dr. Bechis Gustavo", 16);
+        InsertMedico(db, 93, "Dr. Bertran Marcelo", 16);
+        InsertMedico(db, 94, "Dr. Epelde Marcos", 16);
+        InsertMedico(db, 95, "Dr. Gonzalez Tomás", 16);
+        InsertMedico(db, 96, "Dr. Minusi Gustavo", 16);
+        InsertMedico(db, 97, "Dr. Varea Sandro", 16);
 
         InsertEspecialidades(db, 1, "Alergia e inmunología");
         InsertEspecialidades(db, 2, "Anestesiología");
@@ -78,12 +176,12 @@ public class SQLiteDB extends SQLiteOpenHelper {
         InsertEspecialidades(db, 7, "Endocrinología");
         InsertEspecialidades(db, 8, "Gatroenterología");
         InsertEspecialidades(db, 9, "Nefrología");
-        InsertEspecialidades(db, 10, "Neurología");
+        InsertEspecialidades(db, 10, "Neurología Infantil");
         InsertEspecialidades(db, 11, "Nutrición");
         InsertEspecialidades(db, 12, "Oftalmología");
         InsertEspecialidades(db, 13, "Otorrinolaringologia");
         InsertEspecialidades(db, 14, "Pediatría");
-        InsertEspecialidades(db, 15, "Traumatología");
+        InsertEspecialidades(db, 15, "Traumatología y Ortopedia");
         InsertEspecialidades(db, 16, "Urología");
 
         InsertCobertura(db, 1, "A.M.U.R");
