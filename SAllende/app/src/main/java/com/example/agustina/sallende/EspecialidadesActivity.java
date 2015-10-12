@@ -22,7 +22,7 @@ public class EspecialidadesActivity extends ListActivity {
         String[] from = new String[]{"name"};
         int[] to = new int[]{R.id.text};
 
-       /* SimpleCursorAdapter cursorAdapter = new SimpleCursorAdapter(this, R.layout.Row , cursor, from, to);
+       /*SimpleCursorAdapter cursorAdapter = new SimpleCursorAdapter(this, R.layout.Row , cursor, from, to);
 
         listViewitems.setAdapter(cursorAdapter);
 
