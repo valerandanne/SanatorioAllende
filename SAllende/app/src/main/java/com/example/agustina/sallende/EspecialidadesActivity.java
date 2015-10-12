@@ -1,23 +1,71 @@
 package com.example.agustina.sallende;
 
+import android.app.Activity;
 import android.app.ListActivity;
 import android.content.CursorLoader;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.SimpleCursorAdapter;
 
-public class EspecialidadesActivity extends ListActivity {
+import java.sql.Array;
+import java.sql.Blob;
+import java.sql.CallableStatement;
+import java.sql.Clob;
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.NClob;
+import java.sql.PreparedStatement;
+import java.sql.SQLClientInfoException;
+import java.sql.SQLException;
+import java.sql.SQLWarning;
+import java.sql.SQLXML;
+import java.sql.Savepoint;
+import java.sql.Statement;
+import java.sql.Struct;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.Properties;
 
+import Beans.BeanEspecialidad;
+
+public class EspecialidadesActivity extends Activity {
+
+    ListView listViewItems;
+    ArrayList<BeanEspecialidad> lista =new ArrayList<BeanEspecialidad>();
+    BeanEspecialidad especialidad;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_especialidades);
+       setContentView(R.layout.activity_especialidades);
 
-        SQLiteDB db = new SQLiteDB(this);
+        LinearLayout ventana=(LinearLayout)findViewById(R.id.ventana_espe);
+
+        listViewItems=(ListView)findViewById(R.id.list);
+        SQLiteDB db= new SQLiteDB(this);
+        db.getReadableDatabase();
+        Cursor c= db.getAllEspecialidades();
+
+        if(c.moveToFirst()){
+            do {
+                especialidad=new BeanEspecialidad( c.getString(1));
+                lista.add(especialidad);
+            }while(c.moveToNext());
+        }
+
+        ArrayAdapter<BeanEspecialidad> adapter= new ArrayAdapter<BeanEspecialidad>(getApplicationContext(),android.R.layout.activity_list_item,lista);
+        listViewItems.setAdapter(adapter);
+
+       }
+
+        /*SQLiteDB db = new SQLiteDB(this);
         Cursor cursor= db.getAllEspecialidades();
         String[] from = new String[]{"name"};
         int[] to = new int[]{R.id.text};
@@ -33,7 +81,7 @@ public class EspecialidadesActivity extends ListActivity {
         listViewItems.setAdapter(adapter);
         listViewItems.setOnItemClickListener(new OnItemClickListenerListViewItem());
         */
-    }
+
 
 
 

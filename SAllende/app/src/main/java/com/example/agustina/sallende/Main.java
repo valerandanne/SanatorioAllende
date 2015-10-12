@@ -18,30 +18,18 @@ import android.widget.ListView;
 public class Main extends AppCompatActivity{
 
 
-    AlertDialog alertDialogEspe;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        View.OnClickListener handler = new View.OnClickListener() {
-            public void onClick(View v) {
-                switch(v.getId()){
-                    case R.id.button_esp:
-                        ShowEspe();
-                        break;
 
-                }
-            }
-
-
-        };
-        findViewById(R.id.button_esp).setOnClickListener(handler);
 
         PhoneCallListener callListener = new PhoneCallListener();
         TelephonyManager mTM = (TelephonyManager)this.getSystemService(Context.TELEPHONY_SERVICE);
         mTM.listen(callListener, PhoneStateListener.LISTEN_CALL_STATE);
     }
-    public void ShowEspe() {
+    /*public void ShowEspe() {
         ObjectItem[] ObjectItemData = new ObjectItem[15];
 
         ObjectItemData[0] = new ObjectItem(0, "Alergia e inmunología");
@@ -67,9 +55,9 @@ public class Main extends AppCompatActivity{
         listViewItems.setAdapter(adapter);
         listViewItems.setOnItemClickListener(new OnItemClickListenerListViewItem());
 
-     alertDialogEspe = new AlertDialog.Builder(this).setView(listViewItems).setTitle("ESPECIALIDADES").show();
+     alertDialogEspe = new AlertDialog.Builder(this).setView(listViewItems).setTitle("ESPECIALIDADES").show();*/
 
-    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

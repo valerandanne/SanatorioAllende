@@ -16,7 +16,7 @@ public class SQLiteDB extends SQLiteOpenHelper {
 
     static final String MedTable= "Medicos";
     static final String colMedID="id_med";
-    static  final String colMedEspe= "Espe";
+    static  final String colMedEspe= "Especialidades";
     static final String colMedName="nombre";
 
     static final String EspeTable="Especialidades";
@@ -32,17 +32,24 @@ public class SQLiteDB extends SQLiteOpenHelper {
     static final String viewCobertura="ViewCobertura";
 
     public SQLiteDB(Context context) {
+
         super(context, dbName, null, 1);
     }
 
     public void onCreate(SQLiteDatabase db){
 
-        db.execSQL("CREATE TABLE " + MedTable + "(" + colMedID + " INTEGER PRIMARY KEY AUTOINCREMENT , "
-                    + colMedName + " TEXT" + colMedEspe + "INTEGER NOT NULL, FOREIGN KEY (" +
-                colMedEspe + ") REFERENCES " + EspeTable + " (" + colEspeID + ")");
-
         db.execSQL("CREATE TABLE "+ EspeTable + "(" + colEspeID +  " INTEGER PRIMARY KEY AUTOINCREMENT , "
-                    + colEspeDescrip + " TEXT )");
+                + colEspeDescrip + " TEXT )");
+
+        db.execSQL("CREATE TABLE " + MedTable + "(" + colMedID + " INTEGER PRIMARY KEY AUTOINCREMENT , "
+                + colMedName + " TEXT, " + colMedEspe + " INTEGER, "+ " FOREIGN KEY (" +
+                colMedEspe + ") REFERENCES " + EspeTable + " (" + colEspeID + "));");
+
+        db.execSQL("CREATE TRIGGER fk_medEspe_espeid " + " BEFORE INSERT " + " ON " + MedTable +
+                " FOR EACH ROW BEGIN" + " SELECT CASE WHEN ((SELECT " + colEspeID + " FROM " + EspeTable +
+                " WHERE " + colEspeID + "=new." + colMedEspe + " ) IS NULL)" +
+                " THEN RAISE (ABORT,'Foreign Key Violation') END;" + "  END;");
+
 
         db.execSQL("CREATE TABLE " + CobTable + "(" + colCobID + " INTEGER PRIMARY KEY AUTOINCREMENT , "
                     + colCobName + "TEXT )");
@@ -58,13 +65,20 @@ public class SQLiteDB extends SQLiteOpenHelper {
         db.execSQL("CREATE VIEW " + viewCobertura + "AS SELECT " + CobTable + "." + colCobID +
                 " AS _id," + " " + CobTable + "." + colCobName + "FROM " + CobTable);
 
-        db.execSQL("CREATE TRIGGER fk_medEspe_espeid " + " BEFORE INSERT " + " ON " + MedTable +
-                " FOR EACH ROW BEGIN" + " SELECT CASE WHEN ((SELECT " + colEspeID + " FROM " + EspeTable +
-                " WHERE " + colEspeID + "=new." + colMedEspe + " ) IS NULL)" +
-                " THEN RAISE (ABORT,'Foreign Key Violation') END;" + "  END;");
-    //HACER
+
+        //HACER
         InsertMedico(db, 1, "Dr. Copioli Carlos", 1);
+        InsertMedico(db, 2, "Dr. Rosas Juan", 2);
+
+
+
         InsertEspecialidades(db, 1, "Alergia e inmunología");
+        InsertEspecialidades(db, 2, "Cardiología");
+        InsertEspecialidades(db, 3, "Cirugía cardíaca");
+        InsertEspecialidades(db, 4, "Dermatología");
+        InsertEspecialidades(db, 5, "Fonoaudiología");
+        InsertEspecialidades(db, 1, "Endocrinología");
+
         InsertCobertura(db,1,"Osde");
 
 
