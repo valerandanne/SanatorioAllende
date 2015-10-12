@@ -12,11 +12,11 @@ public class CoberturaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cobertura);
-        ListView lvItems = (ListView) findViewById(R.id.lvItems);
+       /* ListView lvItems = (ListView) findViewById(R.id.ventana_cober);
         SQLiteDB db = new SQLiteDB(this);
 
         TodoCursorAdapter todo = new TodoCursorAdapter(this, db.getAllCoberturas(),0);
-        lvItems.setAdapter(todo);
+        lvItems.setAdapter(todo);*/
     }
 
     @Override

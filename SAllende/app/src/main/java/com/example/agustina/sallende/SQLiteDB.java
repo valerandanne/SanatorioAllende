@@ -42,10 +42,6 @@ public class SQLiteDB extends SQLiteOpenHelper {
                 + colEspeDescrip + " TEXT )");
 
         db.execSQL("CREATE TABLE " + MedTable + "(" + colMedID + " INTEGER PRIMARY KEY AUTOINCREMENT , "
-<<<<<<< HEAD
-                    + colMedName + " TEXT " + colMedEspe + "INTEGER NOT NULL, FOREIGN KEY (" +
-                colMedEspe + ") REFERENCES " + EspeTable + " (" + colEspeID + ")");
-=======
                 + colMedName + " TEXT, " + colMedEspe + " INTEGER, "+ " FOREIGN KEY (" +
                 colMedEspe + ") REFERENCES " + EspeTable + " (" + colEspeID + "));");
 
@@ -53,7 +49,6 @@ public class SQLiteDB extends SQLiteOpenHelper {
                 " FOR EACH ROW BEGIN" + " SELECT CASE WHEN ((SELECT " + colEspeID + " FROM " + EspeTable +
                 " WHERE " + colEspeID + "=new." + colMedEspe + " ) IS NULL)" +
                 " THEN RAISE (ABORT,'Foreign Key Violation') END;" + "  END;");
->>>>>>> c8a01cbf34d16e46acd062d153be347754a5221c
 
 
         db.execSQL("CREATE TABLE " + CobTable + "(" + colCobID + " INTEGER PRIMARY KEY AUTOINCREMENT , "
@@ -65,21 +60,14 @@ public class SQLiteDB extends SQLiteOpenHelper {
                 + "." + colMedEspe + " =" + EspeTable + "." + colEspeID);
 
         db.execSQL("CREATE VIEW " + viewEspe + " AS SELECT " + EspeTable + "." + colEspeID +
-<<<<<<< HEAD
-                " AS _id," + " " + EspeTable + "." + colEspeDescrip + " FROM " +  EspeTable);
+                " AS _id," + " " + EspeTable + "." + colEspeDescrip + " FROM " + EspeTable);
 
         db.execSQL("CREATE VIEW " + viewCobertura + " AS SELECT " + CobTable + "." + colCobID +
-=======
-                " AS _id," + " " + EspeTable + "." + colEspeDescrip + "FROM " +  EspeTable);
-
-        db.execSQL("CREATE VIEW " + viewCobertura + "AS SELECT " + CobTable + "." + colCobID +
->>>>>>> ab891f91ee050a8a6cd278b83c630ee27a87f5be
                 " AS _id," + " " + CobTable + "." + colCobName + " FROM " + CobTable);
 
 
         //HACER
         InsertMedico(db, 1, "Dr. Copioli Carlos", 1);
-<<<<<<< HEAD
 
         InsertEspecialidades(db, 1, "Alergia e inmunología");
         InsertEspecialidades(db, 2, "Anestesiología");
@@ -131,25 +119,6 @@ public class SQLiteDB extends SQLiteOpenHelper {
         InsertCobertura(db,31,"SWISS MEDICAL S.A.");
         InsertCobertura(db,32,"UNIMED");
         InsertCobertura(db,33,"UPCN");
-
-
-
-
-
-=======
-        InsertMedico(db, 2, "Dr. Rosas Juan", 2);
-
-
-
-        InsertEspecialidades(db, 1, "Alergia e inmunología");
-        InsertEspecialidades(db, 2, "Cardiología");
-        InsertEspecialidades(db, 3, "Cirugía cardíaca");
-        InsertEspecialidades(db, 4, "Dermatología");
-        InsertEspecialidades(db, 5, "Fonoaudiología");
-        InsertEspecialidades(db, 6, "Endocrinología");
-
-        InsertCobertura(db,1,"Osde");
->>>>>>> c8a01cbf34d16e46acd062d153be347754a5221c
 
 
 //HACER EL INSERT

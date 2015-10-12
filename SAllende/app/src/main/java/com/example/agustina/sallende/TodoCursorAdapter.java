@@ -24,7 +24,7 @@ public class TodoCursorAdapter extends CursorAdapter {
 
     @Override
     public void bindView(View view, Context context, Cursor cursor){
-        TextView tvID = (TextView)view.findViewById(R.id.tvID);
+        /*TextView tvID = (TextView)view.findViewById(R.id.tvID);
         TextView tvName = (TextView)view.findViewById(R.id.tvName);
         //Extract properties from cursor
 
@@ -32,7 +32,7 @@ public class TodoCursorAdapter extends CursorAdapter {
         int ID = cursor.getInt(cursor.getColumnIndex("colCobID"));
 
         tvID.setText(String.valueOf(ID));
-        tvName.setText(name);
+        tvName.setText(name);*/
 
     }
 }
