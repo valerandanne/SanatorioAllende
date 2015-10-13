@@ -8,38 +8,50 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.util.List;
+
+import Beans.BeanEspecialidad;
+
 /**
  * Created by Agustina on 06/10/2015.
  */
-public class ArrayAdapterItem extends ArrayAdapter<ObjectItem> {
-
-    Context mContext;
-    int layoutResourceId;
-    ObjectItem data[] = null;
+public class ArrayAdapterItem extends ArrayAdapter<BeanEspecialidad> {
 
 
-    public ArrayAdapterItem(Context mContext, int layoutResourceId, ObjectItem[] data) {
+    private static class ViewHolder {
+        TextView text1;
+    }
 
-        super(mContext, layoutResourceId, data);
+    public ArrayAdapterItem(Context mContext, ArrayAdapter<BeanEspecialidad> especialidades) {
 
-        this.layoutResourceId = layoutResourceId;
-        this.mContext = mContext;
-        this.data = data;
+        super(mContext, android.R.layout.simple_list_item_1, (List<BeanEspecialidad>) especialidades);
+
+
     }
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        if (convertView == null) {
+      BeanEspecialidad especialidad = getItem(position);
 
-            LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
-            convertView = inflater.inflate(layoutResourceId, parent, false);
+        ViewHolder viewHolder;
 
+        if (convertView == null)
+        {
+            viewHolder = new ViewHolder();
+            LayoutInflater inflater = LayoutInflater.from(getContext());
+            convertView = inflater.inflate(android.R.layout.simple_list_item_1, parent, false);
+            viewHolder.text1 = (TextView) convertView.findViewById(android.R.id.text1);
+            convertView.setTag(viewHolder);
         }
-        ObjectItem objectItem = data[position];
-        TextView textViewItem = (TextView) convertView.findViewById(R.id.textViewItem);
-        textViewItem.setText(objectItem.itemName);
+        else
+        {
+            viewHolder = (ViewHolder) convertView.getTag();
+        }
 
+        viewHolder.text1.setText(especialidad.getDescripcion());
 
         return convertView;
     }
+
+
 
     }
