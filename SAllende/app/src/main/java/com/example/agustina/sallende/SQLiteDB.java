@@ -65,8 +65,8 @@ public class SQLiteDB extends SQLiteOpenHelper {
         db.execSQL("CREATE VIEW " + viewCobertura + " AS SELECT " + CobTable + "." + colCobID +
                 " AS _id," + " " + CobTable + "." + colCobName + " FROM " + CobTable);
 
-       db = this.getWritableDatabase();
-        //HACER
+
+
         InsertMedico(db, 1, "Dr. Copioli Carlos", 1);
         InsertMedico(db, 2, "Dra. Barrera Roxana", 1);
         InsertMedico(db, 3, "Dra. Cavallo Marta", 1);
@@ -231,6 +231,7 @@ public class SQLiteDB extends SQLiteOpenHelper {
         db.execSQL("DROP VIEW IF EXISTS " + viewMed);
         db.execSQL("DROP VIEW IF EXISTS " + viewEspe);
         db.execSQL("DROP VIEW IF EXISTS " + viewCobertura);
+        db.execSQL("DROP TRIGGER IF EXISTS  fk_medEspe_espeid");
 
         onCreate(db);
     }
@@ -241,11 +242,11 @@ public class SQLiteDB extends SQLiteOpenHelper {
         cv.put(colMedID, id);
         cv.put(colMedName, medName);
         cv.put(colMedEspe, espe);
-        db.insert(MedTable, colMedID, cv);
+        this.getWritableDatabase().insert(MedTable, colMedID, cv);
 
     }
     void InsertEspecialidades(SQLiteDatabase db, int id, String descrip)
-    {
+    {   db= this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(colEspeID, id);
         cv.put(colEspeDescrip, descrip);
@@ -256,25 +257,27 @@ public class SQLiteDB extends SQLiteOpenHelper {
         ContentValues cv = new ContentValues();
         cv.put(colCobID, id);
         cv.put(colCobName, cobName);
-        db.insert(CobTable, colCobID, cv);
+        this.getWritableDatabase().insert(CobTable, colCobID, cv);
     }
 
 
-    Cursor getAllMedicos() {
+   public Cursor getAllMedicos() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cur = db.rawQuery("SELECT * FROM " + viewMed, null);
         return cur;
     }
 
-    Cursor getAllEspecialidades() {
+    public Cursor getAllEspecialidades() {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cur = db.rawQuery("SELECT * FROM " + viewEspe, null);
+        Cursor cur = db.rawQuery(" SELECT * FROM " + EspeTable, null);
+
         return cur;
     }
 
     Cursor getAllCoberturas() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cur = db.rawQuery("SELECT * FROM " + viewCobertura, null);
+
         return cur;
     }
 

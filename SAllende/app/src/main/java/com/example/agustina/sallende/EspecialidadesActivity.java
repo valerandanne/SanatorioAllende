@@ -45,24 +45,32 @@ public class EspecialidadesActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       setContentView(R.layout.activity_especialidades);
+        setContentView(R.layout.activity_especialidades);
 
-        listViewItems=(ListView)findViewById(R.id.list);
-        SQLiteDB db =new SQLiteDB(this);
+        listViewItems = (ListView) findViewById(R.id.list);
+        SQLiteDB db = new SQLiteDB(this);
         db.getReadableDatabase();
-        Cursor c= db.getAllEspecialidades();
-        String[] from = new String[]{"name"};
-        int[] to = new int[]{R.id.text};
+        Cursor c = db.getAllEspecialidades();
 
 
-        while(c.moveToNext()) {
-            especialidad = new BeanEspecialidad(c.getString(1));
-            lista.add(especialidad);
+
+        for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext())
+        {
+            lista.add(especialidad = new BeanEspecialidad(c.getString(1)));
         }
 
+        c.close();
+        /*if (c.moveToFirst())
+        {
+        do {
+            especialidad = new BeanEspecialidad(c.getString(1));
+            lista.add(especialidad);
+        } while (c.moveToNext());
+    }*/
 
 
-        ArrayAdapter<BeanEspecialidad> adapter = new ArrayAdapter<BeanEspecialidad>(this,android.R.layout.simple_list_item_1,lista);
+
+        ArrayAdapter<BeanEspecialidad> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,lista);
         listViewItems.setAdapter(adapter);
 
        }
