@@ -33,7 +33,7 @@ public class SQLiteDB extends SQLiteOpenHelper {
 
     public SQLiteDB(Context context) {
 
-        super(context, dbName, null, 1);
+        super(context, dbName, null, 2);
     }
 
     public void onCreate(SQLiteDatabase db){
@@ -165,7 +165,7 @@ public class SQLiteDB extends SQLiteOpenHelper {
         InsertMedico(db, 94, "Dr. Epelde Marcos", 16);
         InsertMedico(db, 95, "Dr. Gonzalez Tomás", 16);
         InsertMedico(db, 96, "Dr. Minusi Gustavo", 16);
-        InsertMedico(db, 97, "Dr. Varea Sandro", 16);
+        
 
         InsertEspecialidades(db, 1, "Alergia e inmunología");
         InsertEspecialidades(db, 2, "Anestesiología");
@@ -223,7 +223,7 @@ public class SQLiteDB extends SQLiteOpenHelper {
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
-
+    if(oldVersion==1 && newVersion==2) {
         db.execSQL("DROP TABLE IF EXISTS " + MedTable);
         db.execSQL("DROP TABLE IF EXISTS " + EspeTable);
         db.execSQL("DROP TABLE IF EXISTS " + CobTable);
@@ -235,29 +235,34 @@ public class SQLiteDB extends SQLiteOpenHelper {
 
         onCreate(db);
     }
+    }
 
     void InsertMedico(SQLiteDatabase db, int id, String medName, int espe)
     {
+
         ContentValues cv = new ContentValues();
         cv.put(colMedID, id);
         cv.put(colMedName, medName);
         cv.put(colMedEspe, espe);
-        this.getWritableDatabase().insert(MedTable, colMedID, cv);
+        db.insert(MedTable, colMedID, cv);
+
 
     }
     void InsertEspecialidades(SQLiteDatabase db, int id, String descrip)
-    {   db= this.getWritableDatabase();
+    {
         ContentValues cv = new ContentValues();
         cv.put(colEspeID, id);
         cv.put(colEspeDescrip, descrip);
         db.insert(EspeTable, colEspeID, cv);
+
     }
     void InsertCobertura(SQLiteDatabase db, int id, String cobName)
     {
         ContentValues cv = new ContentValues();
         cv.put(colCobID, id);
         cv.put(colCobName, cobName);
-        this.getWritableDatabase().insert(CobTable, colCobID, cv);
+        db.insert(CobTable, colCobID, cv);
+
     }
 
 
