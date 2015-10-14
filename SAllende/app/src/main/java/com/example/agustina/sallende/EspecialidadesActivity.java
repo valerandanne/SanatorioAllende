@@ -60,18 +60,11 @@ public class EspecialidadesActivity extends Activity {
         }
 
         c.close();
-        /*if (c.moveToFirst())
-        {
-        do {
-            especialidad = new BeanEspecialidad(c.getString(1));
-            lista.add(especialidad);
-        } while (c.moveToNext());
-    }*/
-
-
 
         ArrayAdapter<BeanEspecialidad> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,lista);
         listViewItems.setAdapter(adapter);
+
+
 
        }
 

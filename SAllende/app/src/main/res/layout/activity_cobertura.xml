@@ -9,5 +9,20 @@
     tools:context="com.example.varandan.sallende.cobertura">
 
 
+    <TextView
+        android:id="@+id/textViewItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:textSize="15dp" />
+
+    <ListView
+        android:id="@+id/lista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:textSize="10dp"
+
+        />
 
 </LinearLayout>

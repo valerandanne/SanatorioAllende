@@ -1,8 +1,13 @@
 package com.example.agustina.sallende;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.provider.SyncStateContract;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.app.Activity;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -12,24 +17,53 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.Locale;
+
 public class MapsActivity extends FragmentActivity {
 
-    private GoogleMap mMap; // Might be null if Google Play services APK is not available.
-    private static final LatLng CBA = new LatLng(-31.3994321,-64.2029724);
+
 
 
         @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps);
-        setUpMapIfNeeded();
-        mMap=((SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
-        Marker Cba = mMap.addMarker(new MarkerOptions().position(CBA).title("Córdoba").snippet("Por favor funciona"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(CBA, 15));
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_maps);
+
+        /*    setUpMapIfNeeded();
+            mMap=((SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
+            Marker Cba = mMap.addMarker(new MarkerOptions().position(CBA).title("Córdoba").snippet("Por favor funciona"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(CBA, 15));*/
+
+        }
+
+    public void clickNueva (View v){
+        Button btnNueva = (Button)findViewById(R.id.button_nueva);
+
+        Uri gmmIntentUri = Uri.parse("http://maps.google.com?geo:-31.424650, -64.187389?z=20");
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        startActivity(mapIntent);
+        //Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("geo:-31.3994321,-64.2029724"));
+        //String uri = String.format( "http://maps.google.com/maps?daddr=" +latitude+","+longitude+"("+destinationNme+")");
+        //Intent intent = new Intent(Intent.ACTION_VIEW,);
+
+        //Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("http://maps.google.com?geo:-31.3994321,-64.2029724"));
+       // Uri.parse()'http://maps.google.com?daddr=-31.3994321,-64.2029724&amp;ll=');
+        //"http://maps.google.com/maps?saddr=-31.424454&daddr=-64.187357"
+
+
 
     }
-    @Override
-    protected void onResume() {
+    public void clickCerro (View v){
+        Button btnCerro = (Button)findViewById(R.id.button_cerro);
+
+    }
+
+
+
+
+
+
+    /*protected void onResume() {
         super.onResume();
         setUpMapIfNeeded();
     }
@@ -49,7 +83,7 @@ public class MapsActivity extends FragmentActivity {
      * stopped or paused), {@link #onCreate(Bundle)} may not be called again so we should call this
      * method in {@link #onResume()} to guarantee that it will be called.
      */
-    private void setUpMapIfNeeded() {
+    /*private void setUpMapIfNeeded() {
         // Do a null check to confirm that we have not already instantiated the map.
         if (mMap == null) {
             // Try to obtain the map from the SupportMapFragment.
@@ -68,7 +102,5 @@ public class MapsActivity extends FragmentActivity {
      * <p/>
      * This should only be called once and when we are sure that {@link #mMap} is not null.
      */
-    private void setUpMap() {
-        mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
-    }
+
 }
