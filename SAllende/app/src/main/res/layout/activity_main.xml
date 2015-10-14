@@ -34,7 +34,7 @@
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="150dp"
-                android:id="@+id/imageView3"
+               android:id="@+id/imageView3"
                 android:src="@drawable/fondo" />
         </LinearLayout>
 
@@ -52,13 +52,14 @@
                 android:clickable="true"
                 android:layout_weight="1"
                 android:text="Cobertura"
-
+                android:layout_marginRight="1.5dp"
                 android:background="#2e2d92"
                 android:textColor="#ffffff"
                 android:textStyle="bold"
                 android:typeface="normal"
                 android:textSize="15dp"
-
+                android:id="@+id/button_cob"
+                android:onClick="clickCobertura"
                 />
 
             <Button
@@ -73,7 +74,11 @@
                 android:singleLine="false"
                 android:textSize="15dp"
                 android:textStyle="bold"
-                android:typeface="normal" />
+                android:typeface="normal"
+                android:layout_marginLeft="1.5dp"
+                android:id="@+id/button_ub"
+                android:onClick="clickUbicación"
+                />
 
 
 
@@ -97,7 +102,9 @@
             android:textColor="#2e2d92"
             android:textSize="15dp"
             android:textStyle="bold"
-            android:id="@+id/" />
+            android:id="@+id/button_esp"
+            android:onClick="clickEspecialidades"
+            />
 
 
     </LinearLayout>
@@ -114,11 +121,14 @@
             android:layout_height="72dp"
             android:clickable="true"
             android:layout_weight="1"
-            android:text="Turnos 0810 555 2553"
+            android:text="TURNOS: 0810-555-2553"
             android:background="#2e2d92"
             android:textColor="#0bc949"
             android:textStyle="bold"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:id="@+id/button_tur"
+            android:onClick="clickTurnos"
+            />
     </LinearLayout>
 
 </LinearLayout>
