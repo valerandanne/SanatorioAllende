@@ -29,33 +29,7 @@ public class Main extends AppCompatActivity{
         TelephonyManager mTM = (TelephonyManager)this.getSystemService(Context.TELEPHONY_SERVICE);
         mTM.listen(callListener, PhoneStateListener.LISTEN_CALL_STATE);
     }
-    /*public void ShowEspe() {
-        ObjectItem[] ObjectItemData = new ObjectItem[15];
 
-        ObjectItemData[0] = new ObjectItem(0, "Alergia e inmunología");
-        ObjectItemData[1] = new ObjectItem(1, "Anestesiología");
-        ObjectItemData[2] = new ObjectItem(2, "Cardiología");
-        ObjectItemData[3] = new ObjectItem(3, "Cirugía cardíaca");
-        ObjectItemData[4] = new ObjectItem(4, "Dermatología");
-        ObjectItemData[5] = new ObjectItem(5, "Fonoaudiología");
-        ObjectItemData[6] = new ObjectItem(6, "Endocrinología");
-        ObjectItemData[7] = new ObjectItem(7, "Gatroenterología");
-        ObjectItemData[8] = new ObjectItem(8, "Nefrología");
-        ObjectItemData[9] = new ObjectItem(9, "Neurología");
-        ObjectItemData[10] = new ObjectItem(10, "Nutrición");
-        ObjectItemData[11] = new ObjectItem(11, "Oftalmología");
-        ObjectItemData[12] = new ObjectItem(12, "Otorrinolaringologia");
-        ObjectItemData[13] = new ObjectItem(13, "Pediatría");
-        ObjectItemData[14] = new ObjectItem(14, "Traumatología");
-
-
-        ArrayAdapterItem adapter = new ArrayAdapterItem(this, R.layout.activity_especialidades, ObjectItemData);
-
-        ListView listViewItems = new ListView(this);
-        listViewItems.setAdapter(adapter);
-        listViewItems.setOnItemClickListener(new OnItemClickListenerListViewItem());
-
-     alertDialogEspe = new AlertDialog.Builder(this).setView(listViewItems).setTitle("ESPECIALIDADES").show();*/
 
 
 

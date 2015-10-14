@@ -165,7 +165,7 @@ public class SQLiteDB extends SQLiteOpenHelper {
         InsertMedico(db, 94, "Dr. Epelde Marcos", 16);
         InsertMedico(db, 95, "Dr. Gonzalez Tomás", 16);
         InsertMedico(db, 96, "Dr. Minusi Gustavo", 16);
-        
+
 
         InsertEspecialidades(db, 1, "Alergia e inmunología");
         InsertEspecialidades(db, 2, "Anestesiología");
@@ -281,7 +281,7 @@ public class SQLiteDB extends SQLiteOpenHelper {
 
     Cursor getAllCoberturas() {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cur = db.rawQuery("SELECT * FROM " + viewCobertura, null);
+        Cursor cur = db.rawQuery("SELECT * FROM " + CobTable, null);
 
         return cur;
     }
