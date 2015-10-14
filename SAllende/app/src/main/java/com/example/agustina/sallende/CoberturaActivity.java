@@ -15,7 +15,7 @@ public class CoberturaActivity extends AppCompatActivity {
        /* ListView lvItems = (ListView) findViewById(R.id.ventana_cober);
         SQLiteDB db = new SQLiteDB(this);
 
-        TodoCursorAdapter todo = new TodoCursorAdapter(this, db.getAllCoberturas(),0);
+
         lvItems.setAdapter(todo);*/
     }
 
