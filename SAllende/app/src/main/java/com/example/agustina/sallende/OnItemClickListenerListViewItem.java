@@ -3,6 +3,7 @@ package com.example.agustina.sallende;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.database.Cursor;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.TextView;
@@ -18,29 +19,40 @@ public class OnItemClickListenerListViewItem implements AdapterView.OnItemClickL
 
         Context context = view.getContext();
 
-        TextView textViewItem = ((TextView) view.findViewById(R.id.textViewItem));
+        /*switch (context)
+        {
+            case "EspecialidadesActivity" : onItemClickEspecialidad(parent,view, position, id);
+                break;
+        }*/
 
-        //String listItemText = textViewItem.getText().toString();
+        TextView c = (TextView) view.findViewById(position);
+        String especialidad = c.getText().toString();
 
-        AlertDialog.Builder alertDialogProf =new AlertDialog.Builder(context);
+        SQLiteDB db = new SQLiteDB(context);
+        db.getReadableDatabase();
+        int idEspe = db.getIdEspecialidad(especialidad);
+        Cursor cur= db.getMedicosFromEspe(idEspe);
 
-        alertDialogProf.setMessage("Dra Agustina Demaldé ")
-                .setTitle("Profesional")
-                .setCancelable(false)
-                .setNeutralButton("Aceptar",new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-
-
-        AlertDialog alert =alertDialogProf.create();
-        alert.show();
-
-        //Toast.makeText(context, "Item: " + listItemText , Toast.LENGTH_SHORT).show();
-
-        //((Main) context).alertDialogEspe.cancel();
-
+        Toast toast = Toast.makeText(context, "espe id"+ idEspe, Toast.LENGTH_SHORT);
+        toast.show();
     }
+
+   /* private void onItemClickEspecialidad(AdapterView<?> parent, View view, int position, long id) {
+
+        Context context = view.getContext();
+
+        TextView c = (TextView) view.findViewById(position);
+        String especialidad = c.getText().toString();
+
+        SQLiteDB db = new SQLiteDB(context);
+        db.getReadableDatabase();
+        int idEspe = db.getIdEspecialidad(especialidad);
+        Cursor cur= db.getMedicosFromEspe(idEspe);
+
+        Toast toast = Toast.makeText(context, "espe id"+ idEspe, Toast.LENGTH_SHORT);
+        toast.show();
+
+    }*/
+
 
 }

@@ -302,8 +302,16 @@ public class SQLiteDB extends SQLiteOpenHelper {
     public Cursor getMedicosFromEspe(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cur = db.rawQuery("SELECT " + colMedName + colSucName + " FROM" + MedTable + SucTable +
-                " WHERE " + colMedSuc + "=" + colSucID + " AND "+ colMedEspe + "="+ id , null);
+                " WHERE " + colMedSuc + "=" + colSucID + " AND " + colMedEspe + "=" + id, null);
         return cur;
+    }
+
+    public int getIdEspecialidad(String especialidad) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cur = db.rawQuery(" SELECT " + colEspeID + " FROM " + EspeTable +" WHERE " +
+                colEspeDescrip + " = " + especialidad , null);
+        int id = cur.getExtras().describeContents();
+        return id;
     }
 
     public Cursor getAllEspecialidades() {
