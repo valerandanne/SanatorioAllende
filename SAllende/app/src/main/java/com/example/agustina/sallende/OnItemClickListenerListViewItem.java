@@ -16,7 +16,7 @@ public class OnItemClickListenerListViewItem implements AdapterView.OnItemClickL
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-        Context context = view.getContext();
+       /* Context context = view.getContext();
 
         TextView textViewItem = ((TextView) view.findViewById(R.id.textViewItem));
 
@@ -35,7 +35,7 @@ public class OnItemClickListenerListViewItem implements AdapterView.OnItemClickL
 
 
         AlertDialog alert =alertDialogProf.create();
-        alert.show();
+        alert.show();*/
 
         //Toast.makeText(context, "Item: " + listItemText , Toast.LENGTH_SHORT).show();
 

@@ -44,6 +44,10 @@
             android:name=".EspecialidadesActivity"
             android:label="@string/title_activity_especialidades" >
         </activity>
+        <activity
+            android:name=".NuevaCbaActivity"
+            android:label="NuevaCba" >
+        </activity>
 
         <meta-data
             android:name="com.google.android.gms.version"
