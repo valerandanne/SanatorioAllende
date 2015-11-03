@@ -6,8 +6,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <!--
  The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but are recommended.
@@ -44,7 +42,18 @@
             android:name=".EspecialidadesActivity"
             android:label="@string/title_activity_especialidades" >
         </activity>
-
+        <activity
+            android:name=".MedicosXEspecialidadActivity"
+            android:label="@string/title_activity_medicosXEspecialidad" >
+        </activity>
+        <activity
+            android:name=".BuscarMedicosActivity"
+            android:label="@string/title_activity_buscarMedicos" >
+        </activity>
+        <activity
+            android:name=".MedicosXSucursal"
+            android:label="@string/title_activity_buscarxsucursal" >
+        </activity>
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
