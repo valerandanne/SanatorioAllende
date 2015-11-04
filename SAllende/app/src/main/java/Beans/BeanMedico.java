@@ -5,9 +5,13 @@ package Beans;
  */
 public class BeanMedico {
 
-    private int id;
     private String nombre;
     private String sucursal;
+
+    public BeanMedico(String nombre, String sucursal) {
+        this.nombre = nombre;
+        this.sucursal = sucursal;
+    }
 
     public String getNombre() {
         return nombre;
@@ -25,7 +29,8 @@ public class BeanMedico {
         this.sucursal = sucursal;
     }
 
-    public int getId() {
-        return id;
+    @Override
+    public String toString() {
+        return this.nombre;
     }
 }

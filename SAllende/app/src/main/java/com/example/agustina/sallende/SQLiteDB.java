@@ -2,10 +2,13 @@ package com.example.agustina.sallende;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.CursorLoader;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import java.util.ArrayList;
+import Beans.BeanEspecialidad;
+import Beans.BeanMedico;
+import Beans.BeanSucursal;
 
 /**
  * Created by Belen on 21/09/2015.
@@ -241,7 +244,7 @@ public class SQLiteDB extends SQLiteOpenHelper {
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
-        if(oldVersion==2 && newVersion==3) {
+        if(oldVersion<newVersion) {
             db.execSQL("DROP TABLE IF EXISTS " + MedTable);
             db.execSQL("DROP TABLE IF EXISTS " + EspeTable);
             db.execSQL("DROP TABLE IF EXISTS " + CobTable);
@@ -289,28 +292,31 @@ public class SQLiteDB extends SQLiteOpenHelper {
         db.insert(SucTable, colSucID, cv);
     }
 
-    public String getMedFromEspe2(int ID) {
+    public ArrayList<BeanMedico> getMedicosFromEspe(int id) {
+        ArrayList<BeanMedico> lista= new ArrayList<BeanMedico>();
+        BeanMedico medico;
         SQLiteDatabase db = this.getReadableDatabase();
-        String[] params = new String[] { String.valueOf(ID) };
-        Cursor c = db.rawQuery("SELECT " + colMedName + colSucName + " FROM" + MedTable + SucTable +
-                " WHERE " + colMedSuc + "=" + colSucID + " AND "+ colMedEspe + "=?" , params);
-        c.moveToFirst();
-        int index = c.getColumnIndex(colMedID);
-        return c.getString(index);
+        Cursor cur = db.rawQuery("SELECT mt." + colMedName + ", st." + colSucName + " FROM " + MedTable + " mt, " + SucTable + " st" +
+                " WHERE mt." + colMedSuc + "= st." + colSucID + " AND mt." + colMedEspe + "=" + id + " ORDER BY mt." + colMedName, null);
+
+        for(cur.moveToFirst(); !cur.isAfterLast(); cur.moveToNext())
+        {
+            lista.add(medico = new BeanMedico(cur.getString(0),cur.getString(1)));
+        }
+        return lista;
     }
 
-    public Cursor getMedicosFromEspe(int id) {
+    public ArrayList<BeanEspecialidad> getAllEspecialidades() {
+        ArrayList<BeanEspecialidad> lista =new ArrayList<BeanEspecialidad>();
+        BeanEspecialidad especialidad;
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cur = db.rawQuery("SELECT " + colMedName + colSucName + " FROM" + MedTable + SucTable +
-                " WHERE " + colMedSuc + "=" + colSucID + " AND "+ colMedEspe + "="+ id , null);
-        return cur;
-    }
+        Cursor cur = db.rawQuery(" SELECT * FROM " + EspeTable + " ORDER BY " + colEspeDescrip , null);
 
-    public Cursor getAllEspecialidades() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cur = db.rawQuery(" SELECT * FROM " + EspeTable, null);
-
-        return cur;
+        for(cur.moveToFirst(); !cur.isAfterLast(); cur.moveToNext())
+        {
+            lista.add(especialidad = new BeanEspecialidad(cur.getString(0),cur.getString(1)));
+        }
+        return lista;
     }
 
     Cursor getAllCoberturas() {
@@ -318,6 +324,34 @@ public class SQLiteDB extends SQLiteOpenHelper {
         Cursor cur = db.rawQuery("SELECT * FROM " + viewCobertura, null);
 
         return cur;
+    }
+
+    public ArrayList<BeanSucursal> getAllSucursales(){
+        ArrayList<BeanSucursal> lista = new ArrayList<BeanSucursal>();
+        BeanSucursal suc;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cur = db.rawQuery(" SELECT * FROM " + SucTable + " ORDER BY " + colSucName , null);
+
+        for(cur.moveToFirst(); !cur.isAfterLast(); cur.moveToNext())
+        {
+            lista.add(suc = new BeanSucursal(cur.getString(0),cur.getString(1)));
+        }
+        return lista;
+    }
+
+    public ArrayList<BeanMedico> getMedicosXEspeXSuc(int id_suc, int id_espe) {
+        ArrayList<BeanMedico> lista= new ArrayList<BeanMedico>();
+        BeanMedico medico;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cur = db.rawQuery("SELECT mt." + colMedName + ", st." + colSucName + " FROM " + MedTable + " mt, " + SucTable + " st" +
+                " WHERE mt." + colMedSuc + "= st." + colSucID + " AND mt." + colMedEspe + "=" + id_espe +
+                " AND st." + colSucID + "=" + id_suc + " ORDER BY mt." + colMedName, null);
+
+        for(cur.moveToFirst(); !cur.isAfterLast(); cur.moveToNext())
+        {
+            lista.add(medico = new BeanMedico(cur.getString(0),cur.getString(1)));
+        }
+        return lista;
     }
 
 //faltan metodos update, delete, get con filtros
