@@ -11,4 +11,6 @@
     <string name="title_activity_buscarMedicos">buscarMedicos</string>
     <string name="title_activity_buscarxsucursal">buscarMedicosXsuc</string>
     <string name="title_activity_buscarMedicosxsucursalxespecialidad">buscarMedicosXespeXsuc</string>
+    <string name="title_activity_nuevacba">nuevaCba</string>
+    <string name="title_activity_nueva_cordoba">Map</string>
 </resources>

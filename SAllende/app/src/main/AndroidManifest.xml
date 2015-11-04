@@ -13,14 +13,19 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <meta-data
-        android:name="com.google.android.maps.v2.API-KEY"
-        android:value="AIzaSyDp_idg2sCtr3TsL4gjZF6iaKsm4kvqBGA"/>
+        android:name="com.google.android.gms.version"
+        android:value="@integer/google_play_services_version" />
+    <meta-data
+        android:name="com.google.android.maps.v2.AIzaSyAvAK6MwDJHM0UjScZVM6KIXE9xuHnLpw8"
+        android:value="AIzaSyAvAK6MwDJHM0UjScZVM6KIXE9xuHnLpw8" />
+
     <uses-feature
         android:glEsVersion="0x00020000"
-        android:required="true"
-        />
-    <application
+        android:required="true" />
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -43,12 +48,10 @@
             android:label="@string/title_activity_especialidades" >
         </activity>
         <activity
-<<<<<<< HEAD
             android:name=".NuevaCbaActivity"
-            android:label="NuevaCba" >
+            android:label="nuevaCba" >
         </activity>
-
-=======
+        <activity
             android:name=".MedicosXEspecialidadActivity"
             android:label="@string/title_activity_medicosXEspecialidad" >
         </activity>
@@ -64,7 +67,7 @@
             android:name=".MedicosXespeXsuc"
             android:label="@string/title_activity_buscarMedicosxsucursalxespecialidad" >
         </activity>
->>>>>>> d7ee41c10ef73c2eedf23ca009e6dd6ef41aea86
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -75,6 +78,10 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" >
+        </activity>
+        <activity
+            android:name=".nuevaCordobaActivity"
+            android:label="@string/title_activity_nueva_cordoba" >
         </activity>
     </application>
 

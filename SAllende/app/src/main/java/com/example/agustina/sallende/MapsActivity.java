@@ -12,6 +12,7 @@ import android.widget.Button;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -22,19 +23,20 @@ import java.util.Locale;
 public class MapsActivity extends FragmentActivity {
 
 
-    GoogleMap mMap;
 
         @Override
     protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_maps);
 
+
+        }
            /*setUpMapIfNeeded();
             mMap=((SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
             Marker Cba = mMap.addMarker(new MarkerOptions().position(CBA).title("Córdoba").snippet("Por favor funciona"));
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(CBA, 15));*/
 
-        }
+
 
     public void clickNueva (View v){
 
@@ -45,12 +47,9 @@ public class MapsActivity extends FragmentActivity {
         startActivity(new Intent(this,NuevaCbaActivity.class));
 
 
+
     }
-    public void onMapReady(GoogleMap map) {
-        map.addMarker(new MarkerOptions()
-                .position(new LatLng(-31.424524497974744,-64.18734864738622))
-                .title("SUCURSAL NUEVA CORDOBA"));
-    }
+
     public void clickCerro (View v){
         Button btnCerro = (Button)findViewById(R.id.button_cerro);
 
