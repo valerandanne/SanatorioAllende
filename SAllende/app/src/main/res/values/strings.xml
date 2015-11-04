@@ -7,4 +7,8 @@
     <string name="title_activity_especialidades">Especialidades</string>
     <string name="title_activity_ubicacion">Ubicación</string>
     <string name="title_activity_maps">Sucursales</string>
+    <string name="title_activity_medicosXEspecialidad">medicosXEspecialidad</string>
+    <string name="title_activity_buscarMedicos">buscarMedicos</string>
+    <string name="title_activity_buscarxsucursal">buscarMedicosXsuc</string>
+    <string name="title_activity_buscarMedicosxsucursalxespecialidad">buscarMedicosXespeXsuc</string>
 </resources>
