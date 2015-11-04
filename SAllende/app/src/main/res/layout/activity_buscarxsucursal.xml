@@ -39,7 +39,8 @@
             android:background="#2e2d92"
             android:textColor="#ffffff"
             android:textSize="30dp"
-            android:clickable="true" />
+            android:clickable="true"
+            android:onClick="clickBuscarPorSucyEspe"/>
     <TableRow>
 
     </TableRow>

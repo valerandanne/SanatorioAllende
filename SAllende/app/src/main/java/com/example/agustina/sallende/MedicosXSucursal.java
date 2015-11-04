@@ -1,6 +1,7 @@
 package com.example.agustina.sallende;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.view.View;
@@ -42,5 +43,14 @@ public class MedicosXSucursal extends Activity {
         ArrayAdapter<BeanEspecialidad> espe_adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, especialidades);
         espe_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         espe_spinner.setAdapter(espe_adapter);
+    }
+    public void clickBuscarPorSucyEspe(View v){
+        BeanEspecialidad espe = (BeanEspecialidad)espe_spinner.getSelectedItem();
+        BeanSucursal suc=(BeanSucursal)suc_spinner.getSelectedItem();
+
+        Intent medicosXEspecialidad = new Intent(getApplicationContext(), MedicosXespeXsuc.class);
+        medicosXEspecialidad.putExtra("IdEspecialidad", Integer.parseInt(espe.getId_espe()));
+        medicosXEspecialidad.putExtra("IdSucursal",Integer.parseInt(suc.getId_Sucu()));
+        startActivity(medicosXEspecialidad);
     }
 }

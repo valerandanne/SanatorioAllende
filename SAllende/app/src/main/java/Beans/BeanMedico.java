@@ -29,4 +29,8 @@ public class BeanMedico {
         this.sucursal = sucursal;
     }
 
+    @Override
+    public String toString() {
+        return this.nombre;
+    }
 }

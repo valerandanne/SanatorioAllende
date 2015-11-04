@@ -339,6 +339,21 @@ public class SQLiteDB extends SQLiteOpenHelper {
         return lista;
     }
 
+    public ArrayList<BeanMedico> getMedicosXEspeXSuc(int id_suc, int id_espe) {
+        ArrayList<BeanMedico> lista= new ArrayList<BeanMedico>();
+        BeanMedico medico;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cur = db.rawQuery("SELECT mt." + colMedName + ", st." + colSucName + " FROM " + MedTable + " mt, " + SucTable + " st" +
+                " WHERE mt." + colMedSuc + "= st." + colSucID + " AND mt." + colMedEspe + "=" + id_espe +
+                " AND st." + colSucID + "=" + id_suc + " ORDER BY mt." + colMedName, null);
+
+        for(cur.moveToFirst(); !cur.isAfterLast(); cur.moveToNext())
+        {
+            lista.add(medico = new BeanMedico(cur.getString(0),cur.getString(1)));
+        }
+        return lista;
+    }
+
 //faltan metodos update, delete, get con filtros
 
 
