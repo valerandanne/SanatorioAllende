@@ -29,7 +29,7 @@ public class Main extends Activity{
         startActivity(new Intent(this, CoberturaActivity.class));
     }
     public void clickUbicación(View v){
-        startActivity(new Intent(this, MapsActivity.class));
+        startActivity(new Intent(this, SucursalesActivity.class));
     }
     public void clickEspecialidades(View v){
         startActivity(new Intent(this,BuscarMedicosActivity.class));

@@ -1,48 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TableRow>
-        <TextView
-            android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        >
+        <ImageView
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-            android:text="Sucursal"
-            android:textSize="30dp"
-            android:gravity=""/>
+            android:src="@drawable/cositomedico"
+            android:layout_weight="0.9"
+            />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:text="Búsqueda Profesional"
+            android:textSize="26dp"
+            android:layout_gravity="center_vertical"
+            android:textStyle="bold"
+            android:textColor="#de071484"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+
+            android:layout_width="171dp"
+            android:layout_height="72dp"
+            android:layout_marginTop="50dp"
+            android:text=" Sucursal"
+            android:textSize="27dp"
+            android:gravity="center_vertical"
+            android:textColor="#de071484"
+            android:layout_weight="0.15"
+            android:textAlignment="center" />
          <Spinner
              android:id="@+id/sucursales_spinner"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:layout_marginTop="70dp"/>
-    </TableRow>
-    <TableRow>
+             android:layout_marginTop="20dp"
+             android:layout_weight="0.5"
+             android:layout_gravity="center"
+             />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
         <TextView
-            android:layout_width="wrap_content"
+
+            android:layout_width="159dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:text="Especialidad"
-            android:textSize="30dp"
-            android:layout_marginTop="20dp"/>
+            android:textSize="27dp"
+            android:gravity="center"
+            android:textColor="#de071484"
+            />
         <Spinner
             android:id="@+id/especialidades_spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"/>
-    </TableRow>
+            android:layout_marginTop="20dp"
+            android:layout_weight="0.5"
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="40dp">
+
         <Button
             android:id="@+id/buscar"
             android:text="Buscar"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:background="#2e2d92"
             android:textColor="#ffffff"
             android:textSize="30dp"
             android:clickable="true"
             android:onClick="clickBuscarPorSucyEspe"/>
-    <TableRow>
 
-    </TableRow>
 
-</TableLayout>
+    </LinearLayout>
+
+</LinearLayout>

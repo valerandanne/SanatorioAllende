@@ -5,19 +5,30 @@
     android:id="@+id/ventana_cober"
     tools:context="com.example.varandan.sallende.cobertura">
 
-
-    <TextView
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="50dp"
-        android:textSize="40dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Cobertura"
-        android:gravity="center"
-        android:id="@+id/textView"
-        android:background="#2e2d92"
-        android:textColor="#ffffff"/>
-
+        android:layout_marginTop="20dp"
+        >
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/cobertura"
+            android:layout_weight="0.9"
+            />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:text="Cobertura"
+            android:textSize="30dp"
+            android:layout_gravity="center_vertical"
+            android:textStyle="bold"
+            android:textColor="#de071484"
+            />
+</LinearLayout>
     <ListView
+        android:layout_marginTop="15dp"
         android:id="@+id/lista"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

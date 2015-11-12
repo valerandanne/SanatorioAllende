@@ -12,6 +12,7 @@ import android.widget.Button;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -23,36 +24,32 @@ public class MapsActivity extends FragmentActivity {
 
 
 
-
         @Override
     protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_maps);
 
-        /*    setUpMapIfNeeded();
+
+        }
+           /*setUpMapIfNeeded();
             mMap=((SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
             Marker Cba = mMap.addMarker(new MarkerOptions().position(CBA).title("Córdoba").snippet("Por favor funciona"));
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(CBA, 15));*/
 
-        }
+
 
     public void clickNueva (View v){
+
         Button btnNueva = (Button)findViewById(R.id.button_nueva);
+        //Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("http://maps.google.com/maps?geo:34.067214,-118.349332?q=410+Hauser+Boulevard,+Los+Angeles,+CA"));
+        //geo:-31.4245983,-64.1872955?q=-31.4245983,-64.1872955(SUCURSAL NUEVA CORDOBA
 
-        Uri gmmIntentUri = Uri.parse("http://maps.google.com?geo:-31.424650, -64.187389?z=20");
-        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-        startActivity(mapIntent);
-        //Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("geo:-31.3994321,-64.2029724"));
-        //String uri = String.format( "http://maps.google.com/maps?daddr=" +latitude+","+longitude+"("+destinationNme+")");
-        //Intent intent = new Intent(Intent.ACTION_VIEW,);
-
-        //Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("http://maps.google.com?geo:-31.3994321,-64.2029724"));
-       // Uri.parse()'http://maps.google.com?daddr=-31.3994321,-64.2029724&amp;ll=');
-        //"http://maps.google.com/maps?saddr=-31.424454&daddr=-64.187357"
+        startActivity(new Intent(this,NuevaCbaActivity.class));
 
 
 
     }
+
     public void clickCerro (View v){
         Button btnCerro = (Button)findViewById(R.id.button_cerro);
 
