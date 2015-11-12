@@ -46,7 +46,7 @@ public class SQLiteDB extends SQLiteOpenHelper {
 
     public SQLiteDB(Context context) {
 
-        super(context, dbName, null, 2);
+        super(context, dbName, null, 3);
     }
 
     public void onCreate(SQLiteDatabase db){
@@ -147,7 +147,7 @@ public class SQLiteDB extends SQLiteOpenHelper {
         InsertMedico(db, 1, "Dr. Copioli Carlos", 1, 1);
         InsertMedico(db, 2, "Dra. Barrera Roxana", 1,1);
         InsertMedico(db, 3, "Dra. Cavallo Marta", 1,1);
-        InsertMedico(db, 4, "Dra.Puentes Laura", 1,2);
+        InsertMedico(db, 4, "Dra. Puentes Laura", 1,2);
         InsertMedico(db, 5, "Dr. Astore Fabian",2,1);
         InsertMedico(db, 6, "Dr. Demaria Javier", 2,1);
         InsertMedico(db, 7, "Dr. Escudero Juan", 2,1);
@@ -255,6 +255,7 @@ public class SQLiteDB extends SQLiteOpenHelper {
             db.execSQL("DROP VIEW IF EXISTS " + viewMed);
             db.execSQL("DROP VIEW IF EXISTS " + viewEspe);
             db.execSQL("DROP VIEW IF EXISTS " + viewCobertura);
+            db.execSQL("DROP VIEW IF EXISTS " + viewSucursales);
             db.execSQL("DROP TRIGGER IF EXISTS  fk_medEspe_espeid");
             db.execSQL("DROP TRIGGER IF EXISTS  fk_medSuc_Sucid");
 
