@@ -13,4 +13,6 @@
     <string name="title_activity_buscarMedicosxsucursalxespecialidad">buscarMedicosXespeXsuc</string>
     <string name="title_activity_nuevacba">nuevaCba</string>
     <string name="title_activity_nueva_cordoba">Map</string>
+      <string name="title_activity_nueva_cba">Nueva Córdoba</string>
+    <string name="title_activity_cerro">Cerro de las rosas</string>
 </resources>

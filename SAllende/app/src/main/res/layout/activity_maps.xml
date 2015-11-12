@@ -1,45 +1,105 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal" android:id="@+id/map"
+    android:orientation="vertical" android:id="@+id/map"
     tools:context="com.example.agustina.sallende.MapsActivity">
     <!--android:name="com.google.android.gms.maps.SupportMapFragment" />-->
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="70dp"
+    android:layout_marginTop="20dp">
 
-
-    <Button
-        android:orientation="vertical"
+    <ImageView
         android:layout_width="fill_parent"
-        android:layout_height="72dp"
-        android:clickable="true"
+        android:layout_height="wrap_content"
+        android:src="@drawable/home"
+        android:layout_weight="0.9"
+        />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3"
+        android:text="Sucursales"
+        android:textSize="35dp"
         android:layout_gravity="center_vertical"
-       android:layout_weight="0.5"
-        android:text="NUEVA CÓRDOBA"
-        android:layout_marginRight="1.5dp"
-        android:background="#2e2d92"
-        android:textColor="#ffffff"
         android:textStyle="bold"
+        android:textColor="#de071484"
+        />
+
+</LinearLayout>
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="120dp"
+    android:orientation="horizontal"
+
+    android:layout_gravity="center"
+    android:layout_marginTop="55dp"
+    android:weightSum="1"
+    android:textAlignment="center">
+
+    <TextView
+        android:layout_width="197dp"
+        android:layout_height="104dp"
+        android:layout_marginLeft="10dp"
+        android:text="NUEVA CÓRDOBA
+        Obispo Oro 37 -
+        Córdoba"
+        android:textColor="#de071484"
+        android:layout_gravity="center"
+        android:layout_weight="0.50"
+        android:textSize="20dp" />
+   <!-- <Button
+        android:orientation="vertical"
+        android:layout_width="146dp"
+        android:layout_height="133dp"
+        android:clickable="true"
+        android:text=
+                 "NUEVA CÓRDOBA         Obispo oro 37         Córdoba"
+        android:background="#005251ff"
+
+        android:textStyle="normal"
         android:typeface="normal"
-        android:textSize="15dp"
+        android:textSize="20dp"
         android:id="@+id/button_nueva"
-        android:onClick="clickNueva"
-        />
+        android:layout_weight="0"
 
-    <Button
-        android:orientation="vertical"
+        android:textAlignment="center" />-->
+
+
+       <ImageButton
+           android:layout_width="118dp"
+           android:layout_height="121dp"
+           android:src="@drawable/imagendemierda"
+           android:onClick="clickNueva"
+           android:layout_gravity="center" />
+</LinearLayout>
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="72dp"
-        android:clickable="true"
-        android:layout_gravity="center_vertical"
-       android:layout_weight="0.5"
-        android:text="CERRO DE LAS ROSAS"
-        android:background="#2e2d92"
-        android:textColor="#ffffff"
-        android:singleLine="false"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        android:typeface="normal"
-        android:layout_marginLeft="1.5dp"
-        android:id="@+id/button_cerro"
-        android:onClick="clickCerro"
-        />
+        android:layout_height="120dp"
+        android:orientation="horizontal"
+
+        android:weightSum="1"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="196dp"
+            android:layout_height="104dp"
+            android:layout_marginLeft="10dp"
+            android:text="CERRO DE LAS ROSAS
+      Pedro Simón
+      Laplace 5749 -
+      Córdoba"
+            android:textColor="#de071484"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:layout_weight="0.46" />
+
+        <ImageButton
+            android:layout_width="118dp"
+            android:layout_height="121dp"
+            android:src="@drawable/imagendemierda"
+            android:onClick="clickCerro"
+            android:layout_gravity="center" />
+</LinearLayout>
+
 </LinearLayout>

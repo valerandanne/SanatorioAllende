@@ -18,9 +18,9 @@
             <ImageView
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
-                android:layout_height="100dp"
+                android:layout_height="130dp"
                 android:id="@+id/imageView"
-                android:src="@drawable/sanatorioallende"
+                android:src="@drawable/ujgglgl_655x492"
                 android:contentDescription="" />
 
         </LinearLayout>
@@ -32,10 +32,10 @@
 
             <ImageView
                 android:orientation="vertical"
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="150dp"
                android:id="@+id/imageView3"
-                android:src="@drawable/fondo" />
+                android:src="@drawable/medicos" />
         </LinearLayout>
 
         <LinearLayout
@@ -48,16 +48,16 @@
             <Button
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
-                android:layout_height="72dp"
+                android:layout_height="80dp"
                 android:clickable="true"
                 android:layout_weight="1"
-                android:text="Cobertura"
+                android:text="COBERTURA"
                 android:layout_marginRight="1.5dp"
                 android:background="#2e2d92"
                 android:textColor="#ffffff"
                 android:textStyle="bold"
                 android:typeface="normal"
-                android:textSize="15dp"
+                android:textSize="18dp"
                 android:id="@+id/button_cob"
                 android:onClick="clickCobertura"
                 />
@@ -65,23 +65,20 @@
             <Button
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
-                android:layout_height="72dp"
+                android:layout_height="80dp"
                 android:clickable="true"
                 android:layout_weight="1"
-                android:text="Ubicación"
+                android:text="UBICACIÓN"
                 android:background="#2e2d92"
                 android:textColor="#ffffff"
                 android:singleLine="false"
-                android:textSize="15dp"
+                android:textSize="18dp"
                 android:textStyle="bold"
                 android:typeface="normal"
                 android:layout_marginLeft="1.5dp"
                 android:id="@+id/button_ub"
                 android:onClick="clickUbicación"
                 />
-
-
-
 
         </LinearLayout>
 
@@ -94,13 +91,13 @@
         <Button
             android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="67dp"
+            android:layout_height="80dp"
             android:clickable="true"
             android:layout_weight="1"
-            android:text="Especialidades"
+            android:text="PROFESIONALES"
             android:background="#d3d7d4"
             android:textColor="#2e2d92"
-            android:textSize="15dp"
+            android:textSize="18dp"
             android:textStyle="bold"
             android:id="@+id/button_esp"
             android:onClick="clickEspecialidades"
@@ -118,14 +115,14 @@
         <Button
             android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="72dp"
+            android:layout_height="80dp"
             android:clickable="true"
             android:layout_weight="1"
             android:text="TURNOS: 0810-555-2553"
             android:background="#2e2d92"
             android:textColor="#0bc949"
             android:textStyle="bold"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:id="@+id/button_tur"
             android:onClick="clickTurnos"
             />
