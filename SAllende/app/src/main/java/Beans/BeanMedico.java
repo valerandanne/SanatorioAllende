@@ -34,6 +34,18 @@ public class BeanMedico implements Comparable<BeanMedico>{
         return this.nombre;
     }
 
+    public String getApellido(){
+        String nombre = this.nombre;
+        String[] nombreSeparado= nombre.split(" ");
+        return nombreSeparado[1].toString();
+    }
+
+    public String getMedNombre(){
+        String nombre = this.nombre;
+        String[] nombreSeparado= nombre.split(" ");
+        return nombreSeparado[2].toString();
+    }
+
     @Override
     public int compareTo(BeanMedico another) {
         return 0;

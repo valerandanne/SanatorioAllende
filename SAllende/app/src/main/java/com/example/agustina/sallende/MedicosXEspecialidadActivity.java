@@ -44,20 +44,7 @@ public class MedicosXEspecialidadActivity extends Activity{
 
         if (listaMedicos != null)
         {
-            ArrayAdapter<BeanMedico> adapter = new ArrayAdapter<BeanMedico>(this,android.R.layout.simple_list_item_2,android.R.id.text1,listaMedicos){
-                public View getView(int position, View convertView, ViewGroup parent) {
-                    View view = super.getView(position, convertView, parent);
-                    TextView text1 = (TextView) view.findViewById(android.R.id.text1);
-                    TextView text2 = (TextView) view.findViewById(android.R.id.text2);
-
-                    BeanMedico med = listaMedicos.get(position);
-
-                    text1.setText(med.getNombre());
-                    text2.setText(med.getSucursal());
-                    return view;
-                }
-            };
-            listViewItems.setAdapter(adapter);
+           cargarAdapter(listaMedicos);
         }
     }
 
@@ -71,35 +58,62 @@ public class MedicosXEspecialidadActivity extends Activity{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.pred:return true;
-            case R.id.nom: return true;
-            case R.id.buscar:return true;
+            case R.id.nombre:OrdenarListaPorNombre(listaMedicos);
+                            return true;
+            case R.id.apellido: OrdenarListaPorApellido(listaMedicos);
+                             return true;
             default: return super.onOptionsItemSelected(item);
         }
     }
 
-    public void OrdenarLista(){
-        if (listaMedicos != null)
+    private void OrdenarListaPorApellido(ArrayList<BeanMedico> lista){
+        if (lista != null)
         {
-            Collections.sort(listaMedicos);
-            ArrayAdapter<BeanMedico> adapter = new ArrayAdapter<BeanMedico>(this,android.R.layout.simple_list_item_2,android.R.id.text1,listaMedicos){
-                public View getView(int position, View convertView, ViewGroup parent) {
-                    View view = super.getView(position, convertView, parent);
-                    TextView text1 = (TextView) view.findViewById(android.R.id.text1);
-                    TextView text2 = (TextView) view.findViewById(android.R.id.text2);
+            ArrayList<BeanMedico> listaOrdenada= lista;
 
-                    BeanMedico med = listaMedicos.get(position);
-
-                    text1.setText(med.getNombre());
-                    text2.setText(med.getSucursal());
-                    return view;
+            Collections.sort(listaOrdenada, new Comparator<BeanMedico>() {
+                @Override
+                public int compare(BeanMedico s1, BeanMedico s2) {
+                    String name1= s1.getApellido();
+                    String name2= s2.getApellido();
+                    return name1.compareToIgnoreCase(name2);
                 }
-            };
-            listViewItems.setAdapter(adapter);
+            });
+
+            cargarAdapter(listaOrdenada);
         }
     }
 
-/*    private BeanMedico buscarMedico(String nom){
+    private void OrdenarListaPorNombre(ArrayList<BeanMedico> lista){
+        if (lista != null)
+        {
+            Collections.sort(lista, new Comparator<BeanMedico>() {
+                @Override
+                public int compare(BeanMedico s1, BeanMedico s2) {
+                    String name1= s1.getMedNombre();
+                    String name2= s2.getMedNombre();
+                    return name1.compareToIgnoreCase(name2);
+                }
+            });
 
-    }*/
+            cargarAdapter(lista);
+        }
+    }
+
+    private void cargarAdapter(final ArrayList<BeanMedico> lista){
+        ArrayAdapter<BeanMedico> adapter = new ArrayAdapter<BeanMedico>(this,android.R.layout.simple_list_item_2,android.R.id.text1,lista){
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                TextView text1 = (TextView) view.findViewById(android.R.id.text1);
+                TextView text2 = (TextView) view.findViewById(android.R.id.text2);
+
+                BeanMedico med = lista.get(position);
+
+                text1.setText(med.getNombre());
+                text2.setText(med.getSucursal());
+                return view;
+            }
+        };
+        listViewItems.setAdapter(adapter);
+    }
 }

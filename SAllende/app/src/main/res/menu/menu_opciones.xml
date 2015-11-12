@@ -5,14 +5,10 @@
         android:title="Ordenar">
 
         <menu>
-             <item android:id="@+id/pred"
-                  android:title="Predeterminada" />
-             <item android:id="@+id/nom"
-                 android:title="Nombre" />
+             <item android:id="@+id/nombre"
+                  android:title="Nombre" />
+             <item android:id="@+id/apellido"
+                 android:title="Apellido" />
         </menu>
     </item>
-
-    <item android:id="@+id/buscar"
-        android:title="Buscar"/>
-
 </menu>

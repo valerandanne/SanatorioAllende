@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import java.util.ArrayList;
@@ -45,7 +46,6 @@ public class CoberturaActivity extends Activity {
             super.onPostExecute(listaCoberturas);
             ArrayAdapter<BeanCobertura> adapter = new ArrayAdapter<BeanCobertura>(context, R.layout.list_item, listaCoberturas);
             listViewItems.setAdapter(adapter);
-            adapter.notifyDataSetChanged();
         }
     }
 }
