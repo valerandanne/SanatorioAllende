@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
+
+import Beans.BeanCobertura;
 import Beans.BeanEspecialidad;
 import Beans.BeanMedico;
 import Beans.BeanSucursal;
@@ -319,11 +321,17 @@ public class SQLiteDB extends SQLiteOpenHelper {
         return lista;
     }
 
-    Cursor getAllCoberturas() {
+    public ArrayList<BeanCobertura> getAllCoberturas() {
+        ArrayList<BeanCobertura> lista= new ArrayList<BeanCobertura>();
+        BeanCobertura cob;
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cur = db.rawQuery("SELECT * FROM " + viewCobertura, null);
+        Cursor cur = db.rawQuery("SELECT * FROM " + CobTable + " ORDER BY " + colCobID, null);
 
-        return cur;
+        for(cur.moveToFirst(); !cur.isAfterLast(); cur.moveToNext())
+        {
+            lista.add(cob = new BeanCobertura(cur.getString(0),cur.getString(1)));
+        }
+        return lista;
     }
 
     public ArrayList<BeanSucursal> getAllSucursales(){

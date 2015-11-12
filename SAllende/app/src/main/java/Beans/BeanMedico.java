@@ -3,7 +3,7 @@ package Beans;
 /**
  * Created by Usuario on 14/10/2015.
  */
-public class BeanMedico {
+public class BeanMedico implements Comparable<BeanMedico>{
 
     private String nombre;
     private String sucursal;
@@ -32,5 +32,10 @@ public class BeanMedico {
     @Override
     public String toString() {
         return this.nombre;
+    }
+
+    @Override
+    public int compareTo(BeanMedico another) {
+        return 0;
     }
 }
