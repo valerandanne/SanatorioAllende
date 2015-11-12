@@ -2,6 +2,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.agustina.sallende.EspecialidadesActivity">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/ordenar"
+        android:title="Ordenar">
+        <menu>
+            <item android:id="@+id/pred"
+                android:title="Predeterminada" />
+            <item android:id="@+id/nom"
+                android:title="Nombre" />
+        </menu>
+    </item>
 </menu>

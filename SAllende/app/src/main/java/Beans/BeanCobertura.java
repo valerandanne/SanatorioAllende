@@ -5,19 +5,24 @@ package Beans;
  */
 public class BeanCobertura
 {
-    private int id_Cob;
+    private String id_Cob;
     private String nombre;
+
+    public BeanCobertura(String id_Cob, String nombre) {
+        this.id_Cob = id_Cob;
+        this.nombre = nombre;
+    }
 
     public BeanCobertura(String nombre)
     {
         this.nombre=nombre;
     }
 
-    public int getId_Cob() {
+    public String getId_Cob() {
         return id_Cob;
     }
 
-    public void setId_Cob(int id_Cob) {
+    public void setId_Cob(String id_Cob) {
         this.id_Cob = id_Cob;
     }
 
