@@ -25,3 +25,13 @@ proguard/
 
 # Log Files
 *.log
+
+!SAllende/.idea/encodings.xml
+!SAllende/.idea/misc.xml
+!SAllende/app/app.iml
+
+!SAllende.iml
+!.idea/modules.xml
+!.idea/gradle.xml
+!.idea/misc.xml
+
