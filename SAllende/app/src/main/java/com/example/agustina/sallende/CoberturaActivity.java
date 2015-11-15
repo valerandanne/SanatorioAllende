@@ -1,9 +1,11 @@
 package com.example.agustina.sallende;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -23,6 +25,7 @@ public class CoberturaActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cobertura);
         listViewItems = (ListView) findViewById(R.id.lista);
+
         new BuscarDatosAsincrono(getApplicationContext()).execute();
     }
 

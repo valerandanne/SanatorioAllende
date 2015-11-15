@@ -11,4 +11,8 @@
                  android:title="Apellido" />
         </menu>
     </item>
+    <activity android:name=".MedicosXespeXsuc"
+        android:icon="@drawable/medico"
+        android:label="        "
+            />
 </menu>
