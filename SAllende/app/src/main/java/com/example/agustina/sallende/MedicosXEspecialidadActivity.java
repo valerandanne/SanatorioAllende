@@ -1,7 +1,9 @@
 package com.example.agustina.sallende;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -21,16 +23,19 @@ import Beans.BeanMedico;
 /**
  * Created by Usuario on 03/11/2015.
  */
-public class MedicosXEspecialidadActivity extends Activity{
+public class MedicosXEspecialidadActivity extends ActionBarActivity {
     private int idEspecialidad;
     ArrayList<BeanMedico>listaMedicos= new ArrayList<BeanMedico>();
     ListView listViewItems;
-
+    ActionBar actionBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicosporespe);
         listViewItems = (ListView) findViewById(R.id.listMedicos);
+        actionBar = getActionBar();
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setTitle(" ");
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){

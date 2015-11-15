@@ -5,4 +5,8 @@
 
     <item android:id="@+id/ordenarXnombre"
         android:title="Ordenar por nombre" />
+    <activity android:name=".CoberturaActivity"
+        android:label="        "
+
+        />
 </menu>

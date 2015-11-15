@@ -1,9 +1,13 @@
 package com.example.agustina.sallende;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,17 +26,22 @@ import Beans.BeanMedico;
 /**
  * Created by Usuario on 03/11/2015.
  */
-public class MedicosXespeXsuc extends Activity {
+public class MedicosXespeXsuc extends ActionBarActivity {
     private int idEspecialidad;
     private int idSucursal;
     ArrayList<BeanMedico> listaMedicos = new ArrayList<BeanMedico>();
     ListView listViewItems;
+    ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicosxespexsuc);
         listViewItems = (ListView) findViewById(R.id.listMedicos);
+         actionBar = getActionBar();
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setTitle(" ");
+
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
@@ -44,6 +53,7 @@ public class MedicosXespeXsuc extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_opciones, menu);
         return super.onCreateOptionsMenu(menu);
@@ -61,6 +71,7 @@ public class MedicosXespeXsuc extends Activity {
     }
 
     private void OrdenarListaPorApellido(ArrayList<BeanMedico> lista){
+
         if (lista != null)
         {
             ArrayList<BeanMedico> listaOrdenada= lista;
